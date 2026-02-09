@@ -1,0 +1,63 @@
+/* MODERN STÍLUSOK 2026 */
+:root {
+    --bs-primary: #2563eb; /* Modern kék */
+    --bs-secondary: #db2777; /* Modern pink/magenta */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #333;
+}
+
+/* Színátmenetes szöveg (Text Gradient) */
+.text-gradient {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+/* Színátmenetes háttér (Badge, stb.) */
+.bg-gradient-primary-to-secondary {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-secondary)) !important;
+}
+
+/* Profilkép stílus */
+.profile-img-container {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-secondary));
+    border-radius: 50%; /* Kör alak */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+}
+
+.profile-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Hogy ne torzuljon a kép */
+    border-radius: 50%;
+    border: 5px solid white; /* Fehér keret */
+    display: block;
+}
+
+/* Pulzáló Animáció */
+@keyframes pulse-boot {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.pulse-animation {
+    animation: pulse-boot 2s infinite;
+}
+
+/* Kártya lebegés (majd a szolgáltatásokhoz) */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
