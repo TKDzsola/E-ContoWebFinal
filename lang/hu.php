@@ -37,9 +37,9 @@ return [
     'contact_mobile_1' => '+43 664 1793866',
     'contact_mobile_2' => '+36 70 5182811',
     'contact_email_label' => 'E-mail cím',
-    'contact_email' => 'farkasneborerika@gmail.com',
+    'contact_email' => 'info@e-conto.at',
     'contact_hours_label' => 'Nyitvatartás',
-    'contact_hours_text' => 'Hétfő - Péntek: Kizárólag előre egyeztetett időpontban!',
+    'contact_hours_text' => 'Hétfő - Vasárnap: Kizárólag előre egyeztetett időpontban!',
     
     'partners_title' => 'Partnereink',
     'partners_subtitle' => 'Megbízható szakmai partnereim, akikkel együttműködöm a sikeres ügyintézés érdekében.',
