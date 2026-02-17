@@ -30,7 +30,7 @@
                                     <label for="dateInput"><?= $text['date_label'] ?></label>
                                 </div>
                                 <div class="text-end">
-                                    <button type="button" id="step1NextBtn" class="btn btn-primary rounded-pill px-4 pulse-animation" onclick="validateAndNext(1)">
+                                    <button type="button" class="btn btn-primary rounded-pill px-4 pulse-animation" onclick="validateAndNext(1)">
                                         <?= $text['btn_next'] ?> <i class="bi bi-arrow-right ms-2"></i>
                                     </button>
                                 </div>
@@ -151,7 +151,6 @@
         currentStep = step;
     }
 
-    // Itt történik a varázslat: ellenőrzés + szabad helyek betöltése
     async function validateAndNext(step) {
         if (step === 1) {
             const dateInput = document.getElementById('dateInput').value;
@@ -160,7 +159,6 @@
             document.getElementById('selectedDateDisplay').innerText = dateInput;
             document.getElementById('finalDate').innerText = dateInput;
             
-            // Lépésváltás és betöltés indítása
             changeStep(2);
             await loadBookedSlots(dateInput);
         }
@@ -172,15 +170,13 @@
         }
     }
 
-    // ÚJ FÜGGVÉNY: Foglalt időpontok betöltése és gombok letiltása
     async function loadBookedSlots(date) {
         const loadingDiv = document.getElementById('timeSlotLoading');
         const container = document.getElementById('timeSlotContainer');
         const slots = document.querySelectorAll('.time-slot-label');
         
-        // 1. Alapállapot visszaállítása (minden gomb aktív)
         loadingDiv.classList.remove('d-none');
-        container.classList.add('opacity-50'); // Halványítjuk amíg tölt
+        container.classList.add('opacity-50');
         
         slots.forEach(slot => {
             const input = slot.querySelector('input');
@@ -194,15 +190,13 @@
             timeText.classList.remove('text-decoration-line-through');
             badge.className = 'badge bg-light text-muted ms-auto rounded-pill border status-badge';
             badge.innerText = 'Szabad / Frei';
-            slot.style.pointerEvents = 'auto'; // Kattintható
+            slot.style.pointerEvents = 'auto';
         });
 
         try {
-            // 2. Adatok lekérése a get_booked_slots.php-tól
             const response = await fetch(`get_booked_slots.php?date=${date}`);
-            const bookedTimes = await response.json(); // Ez egy tömb lesz: ['08:00', '14:00']
+            const bookedTimes = await response.json();
 
-            // 3. Foglalt gombok letiltása
             slots.forEach(slot => {
                 const time = slot.getAttribute('data-time');
                 if (bookedTimes.includes(time)) {
@@ -210,15 +204,12 @@
                     const badge = slot.querySelector('.status-badge');
                     const timeText = slot.querySelector('.time-text');
 
-                    // Letiltás stílusai
                     input.disabled = true;
-                    slot.classList.add('bg-light', 'text-muted'); // Szürke háttér
-                    slot.classList.remove('cursor-pointer', 'hover-lift'); // Nincs hover effekt
-                    slot.style.pointerEvents = 'none'; // Nem kattintható
-                    
-                    timeText.classList.add('text-decoration-line-through'); // Áthúzott szöveg
-                    
-                    badge.className = 'badge bg-secondary text-white ms-auto rounded-pill status-badge'; // Szürke badge
+                    slot.classList.add('bg-light', 'text-muted');
+                    slot.classList.remove('cursor-pointer', 'hover-lift');
+                    slot.style.pointerEvents = 'none';
+                    timeText.classList.add('text-decoration-line-through');
+                    badge.className = 'badge bg-secondary text-white ms-auto rounded-pill status-badge';
                     badge.innerText = 'Foglalt / Gebucht';
                 }
             });
@@ -258,7 +249,8 @@
 
             if (result.success) {
                 alert('<?= $text['success_msg'] ?>');
-                location.reload(); 
+                // VISSZANAVIGÁLÁS A FŐOLDALRA (index.php)
+                window.location.href = 'index.php'; 
             } else {
                 alert('Hiba történt: ' + result.message);
                 btn.disabled = false;
@@ -275,8 +267,5 @@
 
 <style>
     .cursor-pointer { cursor: pointer; }
-    /* Egyedi stílus a letiltott elemeknek, hogy ne tűnjenek kattinthatónak */
-    .list-group-item.bg-light.text-muted {
-        opacity: 0.7;
-    }
+    .list-group-item.bg-light.text-muted { opacity: 0.7; }
 </style>
