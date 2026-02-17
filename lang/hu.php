@@ -1,13 +1,11 @@
 <?php
 return [
-    // NAVIGÁCIÓ
     'nav_home' => 'Magamról',
     'nav_services' => 'Tevékenységek',
     'nav_booking' => 'Időpontfoglalás',
     'nav_partners' => 'Partnerek',
     'nav_contact' => 'Kapcsolat',
     
-    // FŐOLDAL (HOME)
     'site_title' => 'Ausztriai Könyvelés - E-Conto',
     'hero_badge' => 'Minőség · Precizitás · Gyorsaság',
     'about_title' => 'Magamról',
@@ -18,7 +16,6 @@ return [
     'btn_contact' => 'Kapcsolatfelvétel',
     'copyright' => 'Minden jog fenntartva.',
 
-    // SZOLGÁLTATÁSOK (SERVICES)
     'services_title' => 'Tevékenységek',
     'services_subtitle' => 'Professzionális megoldások vállalkozása számára',
     'srv_1_title' => 'Könyvelés',
@@ -30,7 +27,6 @@ return [
     'srv_4_title' => 'Cégalapítás',
     'srv_4_desc' => 'Segítségnyújtás új vállalkozások indításában, adminisztrációs terhek átvállalása.',
 
-    // KAPCSOLAT (CONTACT) - ÚJ RÉSZ
     'contact_title' => 'Kapcsolat',
     'contact_subtitle' => 'Keressen bizalommal az alábbi elérhetőségeken!',
     'contact_address_label' => 'Iroda címe',
@@ -41,15 +37,51 @@ return [
     'contact_mobile_1' => '+43 664 1793866',
     'contact_mobile_2' => '+36 70 5182811',
     'contact_email_label' => 'E-mail cím',
-    'contact_email' => 'info@e-conto.at',
+    'contact_email' => 'farkasneborerika@gmail.com',
     'contact_hours_label' => 'Nyitvatartás',
     'contact_hours_text' => 'Hétfő - Péntek: Kizárólag előre egyeztetett időpontban!',
     
-    // ŰRLAP
-    'form_title' => 'Üzenetküldés',
-    'form_name' => 'Az Ön neve',
-    'form_email' => 'E-mail címe',
-    'form_phone' => 'Telefonszáma',
-    'form_message' => 'Üzenet szövege',
-    'form_send' => 'Üzenet elküldése',
+    'partners_title' => 'Partnereink',
+    'partners_subtitle' => 'Megbízható szakmai partnereim, akikkel együttműködöm a sikeres ügyintézés érdekében.',
+    'partner_1_name' => 'Nyelvhatár',
+    'partner_1_desc' => 'Professzionális fordítás és tolmácsolás. Hivatalos iratok, szerződések precíz fordítása.',
+    'partner_1_btn' => 'Weboldal megtekintése',
+    'partner_2_name' => 'Fidas Österreich',
+    'partner_2_desc' => 'Adótanácsadás, könyvvizsgálat és üzleti tanácsadás Ausztria egész területén.',
+    'partner_2_btn' => 'Weboldal megtekintése',
+    'partner_cta_text' => 'Szeretne Ön is partnerünk lenni?',
+    'partner_cta_btn' => 'Lépjen velem kapcsolatba!',
+
+    'booking_title' => 'Időpontfoglalás',
+    'booking_subtitle' => 'Kérjen időpontot egyszerűen, 3 lépésben.',
+    
+    'step_1_title' => '1. Dátum kiválasztása',
+    'step_1_desc' => 'Kérjük, válassza ki, melyik napon szeretne jönni.',
+    'date_label' => 'Válasszon dátumot:',
+    
+    'step_2_title' => '2. Időpont kiválasztása',
+    'step_2_desc' => 'A kiválasztott napon ezek az időpontok szabadok:',
+    
+    'step_3_title' => '3. Adatok megadása',
+    'step_3_desc' => 'Már majdnem kész! Adja meg elérhetőségeit a foglaláshoz.',
+    
+    'book_summary' => 'Kiválasztott időpont:',
+    'book_service_label' => 'Milyen ügyben keres?',
+    'service_opt_1' => 'Tanácsadás',
+    'service_opt_2' => 'Könyvelés',
+    'service_opt_3' => 'Egyéb',
+    'service_opt_4' => 'Bérszámfejtés',
+    'service_opt_5' => 'Munkavállalói adóvisszatérítés',
+    'service_opt_6' => 'Családi pótlék',
+    'service_opt_7' => 'GYES',
+
+    'book_name' => 'Teljes név',
+    'book_email' => 'E-mail cím',
+    'book_phone' => 'Telefonszám',
+    'book_msg' => 'Megjegyzés (Opcionális)',
+    
+    'btn_next' => 'Következő',
+    'btn_back' => 'Vissza',
+    'btn_finish' => 'Foglalás véglegesítése',
+    'success_msg' => 'Köszönjük! A foglalási igényét rögzítettük. Hamarosan keresni fogjuk!',
 ];

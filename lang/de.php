@@ -1,13 +1,11 @@
 <?php
 return [
-    // NAVIGATION
     'nav_home' => 'Über Mich',
     'nav_services' => 'Tätigkeiten',
     'nav_booking' => 'Buchung',
     'nav_partners' => 'Partner',
     'nav_contact' => 'Kontakt',
     
-    // HOME
     'site_title' => 'Buchhaltung in Österreich - E-Conto',
     'hero_badge' => 'Qualität · Präzision · Geschwindigkeit',
     'about_title' => 'Über Mich',
@@ -18,7 +16,6 @@ return [
     'btn_contact' => 'Kontakt aufnehmen',
     'copyright' => 'Alle Rechte vorbehalten.',
 
-    // DIENSTLEISTUNGEN
     'services_title' => 'Dienstleistungen',
     'services_subtitle' => 'Professionelle Lösungen für Ihr Unternehmen',
     'srv_1_title' => 'Buchhaltung',
@@ -30,7 +27,6 @@ return [
     'srv_4_title' => 'Firmengründung',
     'srv_4_desc' => 'Unterstützung bei der Gründung neuer Unternehmen, Übernahme administrativer Lasten.',
 
-    // KONTAKT - NEU
     'contact_title' => 'Kontakt',
     'contact_subtitle' => 'Kontaktieren Sie mich gerne!',
     'contact_address_label' => 'Büro',
@@ -41,15 +37,51 @@ return [
     'contact_mobile_1' => '+43 664 1793866',
     'contact_mobile_2' => '+36 70 5182811',
     'contact_email_label' => 'E-Mail',
-    'contact_email' => 'info@e-conto.at',
+    'contact_email' => 'farkasneborerika@gmail.com',
     'contact_hours_label' => 'Öffnungszeiten',
     'contact_hours_text' => 'Montag - Freitag: Nur nach Terminvereinbarung!',
     
-    // FORMULAR
-    'form_title' => 'Nachricht senden',
-    'form_name' => 'Ihr Name',
-    'form_email' => 'Ihre E-Mail',
-    'form_phone' => 'Telefonnummer',
-    'form_message' => 'Ihre Nachricht',
-    'form_send' => 'Nachricht senden',
+    'partners_title' => 'Unsere Partner',
+    'partners_subtitle' => 'Zuverlässige professionelle Partner, mit denen ich zusammenarbeite.',
+    'partner_1_name' => 'Nyelvhatár',
+    'partner_1_desc' => 'Professionelle Übersetzung und Dolmetschen. Präzise Übersetzung von offiziellen Dokumenten.',
+    'partner_1_btn' => 'Webseite besuchen',
+    'partner_2_name' => 'Fidas Österreich',
+    'partner_2_desc' => 'Steuerberatung, Wirtschaftsprüfung und Unternehmensberatung in ganz Österreich.',
+    'partner_2_btn' => 'Webseite besuchen',
+    'partner_cta_text' => 'Möchten Sie auch unser Partner werden?',
+    'partner_cta_btn' => 'Kontaktieren Sie mich!',
+
+    'booking_title' => 'Terminbuchung',
+    'booking_subtitle' => 'Vereinbaren Sie einen Termin in 3 einfachen Schritten.',
+    
+    'step_1_title' => '1. Datum wählen',
+    'step_1_desc' => 'Bitte wählen Sie den gewünschten Tag aus.',
+    'date_label' => 'Datum:',
+    
+    'step_2_title' => '2. Uhrzeit wählen',
+    'step_2_desc' => 'Verfügbare Termine am gewählten Tag:',
+    
+    'step_3_title' => '3. Ihre Daten',
+    'step_3_desc' => 'Fast fertig! Bitte geben Sie Ihre Kontaktdaten an.',
+    
+    'book_summary' => 'Gewählter Termin:',
+    'book_service_label' => 'Worum geht es?',
+    'service_opt_1' => 'Beratung',
+    'service_opt_2' => 'Buchhaltung',
+    'service_opt_3' => 'Sonstiges',
+    'service_opt_4' => 'Lohnverrechnung',
+    'service_opt_5' => 'Arbeitnehmerveranlagung',
+    'service_opt_6' => 'Familienbeihilfe',
+    'service_opt_7' => 'Kinderbetreuungsgeld',
+
+    'book_name' => 'Vollständiger Name',
+    'book_email' => 'E-Mail Adresse',
+    'book_phone' => 'Telefonnummer',
+    'book_msg' => 'Notiz (Optional)',
+    
+    'btn_next' => 'Weiter',
+    'btn_back' => 'Zurück',
+    'btn_finish' => 'Buchung abschließen',
+    'success_msg' => 'Danke! Ihre Buchungsanfrage wurde gespeichert.',
 ];
