@@ -1,96 +1,125 @@
-<section class="py-5 hero-section">
-    <div class="hero-blob hero-blob-1" style="top: 10%; left: -5%;"></div>
-    <div class="hero-blob hero-blob-2" style="bottom: 5%; right: -5%;"></div>
+<?php
+/**
+ * templates/contact.php
+ * Kártya stílusú elérhetőségek táblázatban + Beágyazott Google Térkép
+ */
 
-    <div class="container px-5 my-5 position-relative" style="z-index: 2;">
+// Nyelvi adatok biztosítása
+if (!isset($lang) || empty($lang)) {
+    $current_lang = $_GET['lang'] ?? ($_SESSION['lang'] ?? 'hu');
+    $lang_file_path = dirname(__DIR__) . '/lang/' . $current_lang . '.php';
+    if (file_exists($lang_file_path)) {
+        $lang = include($lang_file_path);
+    }
+}
+?>
+<section class="py-5">
+    <div class="container px-5">
         
-        <div class="text-center mb-5">
-            <h1 class="display-5 fw-bolder mb-3">
-                <span class="text-gradient d-inline"><?= $text['contact_title'] ?></span>
-            </h1>
-            <p class="lead fw-light text-muted mb-0"><?= $text['contact_subtitle'] ?></p>
-        </div>
+        <div class="card border-0 shadow rounded-4 overflow-hidden mb-5">
+            <div class="card-body p-5 bg-light">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3 d-inline-flex p-3">
+                        <i class="bi bi-envelope fs-3"></i>
+                    </div>
+                    <h1 class="fw-bolder"><?php echo $lang['contact_title'] ?? 'Kapcsolat'; ?></h1>
+                    <p class="lead fw-normal text-muted mb-0"><?php echo $lang['contact_subtitle'] ?? 'Keressen bizalommal az alábbi elérhetőségeken!'; ?></p>
+                </div>
 
-        <div class="row justify-content-center">
-            
-            <div class="col-lg-8">
-                <div class="card h-100 border-0 shadow-sm rounded-4 hover-lift" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px);">
-                    <div class="card-body p-5">
-                        
-                        <div class="d-flex mb-4 border-bottom pb-4">
-                            <div class="feature bg-gradient-primary-to-secondary text-white rounded-3 me-4 p-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                                <i class="bi bi-geo-alt-fill fs-3"></i>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <div class="fw-bolder text-dark h5 mb-1"><?= $text['contact_address_label'] ?></div>
-                                <div class="text-muted fs-5"><?= $text['contact_address'] ?></div>
-                            </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle bg-white rounded-3 shadow-sm">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 60px;" class="text-center">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 p-2 d-inline-flex">
+                                                <i class="bi bi-geo-alt fs-5"></i>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold fs-5"><?php echo $lang['contact_address_label'] ?? 'Iroda címe'; ?></td>
+                                        <td>
+                                            <a href="https://www.google.com/maps/search/?api=1&query=A-7540+Güssing+Europastraße+1" target="_blank" class="text-primary text-decoration-underline fw-bold fs-5">
+                                                <?php echo $lang['contact_address'] ?? 'A-7540 Güssing, Europastraße 1'; ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-center">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 p-2 d-inline-flex">
+                                                <i class="bi bi-telephone fs-5"></i>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold fs-5"><?php echo $lang['contact_phone_label'] ?? 'Telefon & Fax'; ?></td>
+                                        <td>
+                                            <a href="tel:+43332243847" class="text-muted text-decoration-none fs-5">
+                                                <?php echo $lang['contact_phone'] ?? '+43 3322 43847'; ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-center">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 p-2 d-inline-flex">
+                                                <i class="bi bi-phone fs-5"></i>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold fs-5"><?php echo $lang['contact_mobile_label'] ?? 'Mobil'; ?></td>
+                                        <td>
+                                            <a href="tel:+436641793866" class="text-muted text-decoration-none d-block fs-5">
+                                                <?php echo $lang['contact_mobile_1'] ?? '+43 664 1793866'; ?>
+                                            </a>
+                                            <a href="tel:+36705182811" class="text-muted text-decoration-none d-block fs-5">
+                                                <?php echo $lang['contact_mobile_2'] ?? '+36 70 5182811'; ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-center">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 p-2 d-inline-flex">
+                                                <i class="bi bi-envelope-at fs-5"></i>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold fs-5"><?php echo $lang['contact_email_label'] ?? 'E-mail cím'; ?></td>
+                                        <td>
+                                            <a href="mailto:<?php echo $lang['contact_email'] ?? 'info@e-conto.at'; ?>" class="text-primary text-decoration-underline fw-bold fs-5">
+                                                <?php echo $lang['contact_email'] ?? 'info@e-conto.at'; ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-center">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 p-2 d-inline-flex">
+                                                <i class="bi bi-clock fs-5"></i>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold fs-5"><?php echo $lang['contact_hours_label'] ?? 'Nyitvatartás'; ?></td>
+                                        <td>
+                                            <span class="text-muted fs-5"><?php echo $lang['contact_hours_text'] ?? 'Hétfő - Vasárnap: Kizárólag előre egyeztetett időpontban!'; ?></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
-                        <div class="d-flex mb-4 border-bottom pb-4">
-                            <div class="feature bg-gradient-primary-to-secondary text-white rounded-3 me-4 p-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                                <i class="bi bi-telephone-fill fs-3"></i>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <div class="fw-bolder text-dark h5 mb-1"><?= $text['contact_phone_label'] ?></div>
-                                <a href="tel:<?= str_replace(' ', '', $text['contact_phone']) ?>" class="text-decoration-none text-muted fs-5 hover-link">
-                                    <?= $text['contact_phone'] ?>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="d-flex mb-4 border-bottom pb-4">
-                            <div class="feature bg-gradient-primary-to-secondary text-white rounded-3 me-4 p-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                                <i class="bi bi-phone-fill fs-3"></i>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <div class="fw-bolder text-dark h5 mb-1"><?= $text['contact_mobile_label'] ?></div>
-                                <a href="tel:<?= str_replace(' ', '', $text['contact_mobile_1']) ?>" class="text-decoration-none text-muted fs-5 d-block mb-1 hover-link">
-                                    <?= $text['contact_mobile_1'] ?>
-                                </a>
-                                <a href="tel:<?= str_replace(' ', '', $text['contact_mobile_2']) ?>" class="text-decoration-none text-muted fs-5 d-block hover-link">
-                                    <?= $text['contact_mobile_2'] ?>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="d-flex mb-4 pb-2">
-                            <div class="feature bg-gradient-primary-to-secondary text-white rounded-3 me-4 p-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                                <i class="bi bi-envelope-fill fs-3"></i>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <div class="fw-bolder text-dark h5 mb-1"><?= $text['contact_email_label'] ?></div>
-                                <a href="mailto:<?= $text['contact_email'] ?>" class="text-decoration-none text-primary fw-bold fs-5 hover-link"><?= $text['contact_email'] ?></a>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-white rounded-3 shadow-sm border-start border-4 border-primary mt-4">
-                            <div class="fw-bold text-primary mb-2 text-uppercase small d-flex align-items-center">
-                                <i class="bi bi-clock-fill me-2 fs-5"></i>
-                                <?= $text['contact_hours_label'] ?>
-                            </div>
-                            <div class="text-dark fw-bold fs-5"><?= $text['contact_hours_text'] ?></div>
-                        </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <div class="row mt-5 justify-content-center">
-            <div class="col-lg-10">
-                <div class="card border-0 shadow rounded-4 overflow-hidden hover-lift">
-                    <iframe 
-                        width="100%" 
-                        height="450" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        marginheight="0" 
-                        marginwidth="0" 
-                        src="https://maps.google.com/maps?q=Europastra%C3%9Fe+1,+7540+G%C3%BCssing&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                    </iframe>
-                </div>
+        <div class="card border-0 shadow rounded-4 overflow-hidden">
+            <div class="card-body p-0">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2720.551717804987!2d16.324201876878367!3d47.05886542565612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476e93897b779a5d%3A0x6334a6671048b26c!2sEuropastra%C3%9Fe+1%2C+7540+G%C3%BCssing%2C+Ausztria!5e0!3m2!1shu!2shu!4v1708375000000!5m2!1shu!2shu" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
 

@@ -1,91 +1,89 @@
 <?php
+/**
+ * lang/de.php - Vollständiger deutscher Inhalt
+ */
 return [
-    'nav_home' => 'Über Mich',
+    'nav_home' => 'Über mich',
     'nav_services' => 'Tätigkeiten',
-    'nav_booking' => 'Buchung',
+    'nav_booking' => 'Terminbuchung',
     'nav_partners' => 'Partner',
     'nav_contact' => 'Kontakt',
     
-    'site_title' => 'Buchhaltung in Österreich - E-Conto',
-    'hero_badge' => 'Qualität · Präzision · Geschwindigkeit',
-    'about_title' => 'Über Mich',
-    'about_name' => 'Erika Farkasné Bor, B.Sc.',
+    'site_title' => 'Österreichische Buchhaltung | E-Conto',
+    'hero_badge' => 'Qualität · Präzision · Schnelligkeit',
+    'about_title' => 'Über mich',
+    'about_name' => 'Erika Farkasné Bor',
     
-    'about_text_hu' => 'In Ungarn verfüge ich über Qualifikationen als Betriebswirtin, Steuerberaterin, Fachreferentin für Sozialversicherung und Lohnverrechnung sowie als Bilanzbuchhalterin. Ich habe im Bereich Rechnungswesen gearbeitet, hauptsächlich als Hauptbuchhalterin.',
-    'about_text_at' => 'In Österreich habe ich die Fachausbildung zur Bilanzbuchhalterin, Personalverrechnerin und Sozialversicherungs-Sachbearbeiterin absolviert. Aufgrund meiner Berechtigung habe ich in Österreich auch das Recht auf Akteneinsicht bezüglich meiner Klienten. Im Rahmen meiner Zusammenarbeit mit einem österreichischen Steuerberater und Wirtschaftsprüfer kann ich meinen Klienten umfassende Steuer- und Wirtschaftsprüfungsdienstleistungen anbieten. Eine Auflistung der von mir erbrachten Dienstleistungen finden Sie auf meiner Homepage unter dem Menüpunkt Tätigkeiten.',
+    'about_text_hu' => 'In Ungarn besitze ich Qualifikationen als Ökonomin, Steuerberaterin, Expertin für Sozialversicherung und Lohnabrechnung sowie als bilanzbuchhalterin. Ich habe im Bereich Rechnungswesen gearbeitet, meistens als Chefbuchhalterin.',
+    'about_text_at' => 'In Österreich habe ich die Qualifikationen als Bilanzbuchhalterin, Personalverrechnerin und Sozialversicherungsreferentin erworben. Durch meine Berechtigung habe ich in Österreich auch das Recht auf Akteneinsicht für meine Mandanten.',
     
-    'btn_facebook' => 'Offizielle Facebook-Seite',
-    'btn_booking' => 'Termin buchen',
+    'btn_facebook' => 'Offizielle Facebook-Seite von E-Conto',
+    'btn_booking' => 'Terminbuchung',
     'btn_contact' => 'Kontakt aufnehmen',
     'copyright' => 'Alle Rechte vorbehalten.',
 
-    'services_title' => 'Dienstleistungen',
-    'services_subtitle' => 'Professionelle Lösungen für Ihr Unternehmen',
-    'srv_1_title' => 'Buchhaltung',
-    'srv_1_desc' => 'Umfassende Buchhaltung, Erstellung von Jahresabschlüssen, behördliche Meldungen präzise und fristgerecht.',
-    'srv_2_title' => 'Lohnverrechnung',
-    'srv_2_desc' => 'An- und Abmeldung von Mitarbeitern, Lohnverrechnung, Beitragsmeldungen und arbeitsrechtliche Beratung.',
-    'srv_3_title' => 'Steuerberatung',
-    'srv_3_desc' => 'Wahl der optimalen Steuerform, Steuerplanung und Vertretung vor den österreichischen Steuerbehörden.',
-    'srv_4_title' => 'Firmengründung',
-    'srv_4_desc' => 'Unterstützung bei der Gründung neuer Unternehmen, Übernahme administrativer Lasten.',
+    // Terminbuchung Texte
+    'booking_title' => 'Terminbuchung',
+    'booking_subtitle' => 'Buchen Sie einfach einen Termin in 3 Schritten.',
+    
+    'step_1_title' => '1. Datum wählen',
+    'step_1_desc' => 'Wählen Sie einen passenden Tag aus dem Kalender.',
+    'date_label' => 'Datum auswählen',
+    
+    'step_2_title' => '2. Uhrzeit wählen',
+    'step_2_desc' => 'Wählen Sie aus den verfügbaren Terminen:',
+    'loading' => 'Verfügbare Termine werden geladen...',
+    'status_free' => 'Frei',
+    'status_booked' => 'Gebucht',
+    
+    'step_3_title' => '3. Daten angeben',
+    'step_3_desc' => 'Fast fertig! Geben Sie Ihre Kontaktdaten für die Buchung an.',
+    'book_summary' => 'Gewählter Termin:',
+    
+    'book_service_placeholder' => 'Wählen Sie...',
+    'book_service_label' => 'In welcher Angelegenheit suchen Sie uns auf?',
+    'service_opt_1' => 'Beratung',
+    'service_opt_2' => 'Buchhaltung',
+    'service_opt_3' => 'Personalverrechnung',
+    'service_opt_4' => 'Steuererklärung',
+    'service_opt_5' => 'Familienbeihilfe',
+    'service_opt_6' => 'KBG / Wochengeld',
+    'service_opt_7' => 'Sonstiges',
 
+    'book_name' => 'Vollständiger Name',
+    'book_email' => 'E-Mail-Adresse',
+    'book_phone' => 'Telefonnummer',
+    'book_msg' => 'Anmerkung (Optional)',
+    
+    'btn_next' => 'Weiter',
+    'btn_back' => 'Zurück',
+    'btn_finish' => 'Buchung abschließen',
+    'btn_saving' => 'Wird gespeichert...',
+    
+    // Validierungsmeldungen
+    'alert_date' => 'Bitte wählen Sie ein Datum!',
+    'alert_time' => 'Bitte wählen Sie eine Uhrzeit!',
+    'alert_service' => 'Bitte wählen Sie ein Anliegen!',
+    'alert_name' => 'Bitte geben Sie Ihren Namen an!',
+    'alert_email' => 'Bitte geben Sie Ihre E-Mail-Adresse an!',
+    'alert_phone' => 'Bitte geben Sie Ihre Telefonnummer an!',
+
+    // Német nyelvű új sikerüzenet:
+    'success_msg' => "Vielen Dank! Ihre Buchung wurde registriert. Wir senden Ihnen eine Bestätigungs-E-Mail zu – bitte überprüfen Sie auch Ihren Spam-Ordner, da die Bestätigung gelegentlich dort landen kann!",
+    'error_network' => 'Netzwerkfehler. Bitte versuchen Sie es später erneut.',
+
+    // Kontakt
     'contact_title' => 'Kontakt',
-    'contact_subtitle' => 'Kontaktieren Sie mich gerne!',
-    'contact_address_label' => 'Büro',
+    'contact_subtitle' => 'Kontaktieren Sie uns unter den folgenden Erreichbarkeiten!',
+    'contact_address_label' => 'Büroadresse',
     'contact_address' => 'A-7540 Güssing, Europastraße 1',
     'contact_phone_label' => 'Telefon & Fax',
     'contact_phone' => '+43 3322 43847',
     'contact_mobile_label' => 'Mobil',
     'contact_mobile_1' => '+43 664 1793866',
     'contact_mobile_2' => '+36 70 5182811',
-    'contact_email_label' => 'E-Mail',
+    'contact_email_label' => 'E-Mail-Adresse',
     'contact_email' => 'info@e-conto.at',
     'contact_hours_label' => 'Öffnungszeiten',
-    'contact_hours_text' => 'Montag - Freitag: Nur nach Terminvereinbarung!',
-    
-    'partners_title' => 'Unsere Partner',
-    'partners_subtitle' => 'Zuverlässige professionelle Partner, mit denen ich zusammenarbeite.',
-    'partner_1_name' => 'Nyelvhatár',
-    'partner_1_desc' => 'Professionelle Übersetzung und Dolmetschen. Präzise Übersetzung von offiziellen Dokumenten.',
-    'partner_1_btn' => 'Webseite besuchen',
-    'partner_2_name' => 'Fidas Österreich',
-    'partner_2_desc' => 'Steuerberatung, Wirtschaftsprüfung und Unternehmensberatung in ganz Österreich.',
-    'partner_2_btn' => 'Webseite besuchen',
-    'partner_cta_text' => 'Möchten Sie auch unser Partner werden?',
-    'partner_cta_btn' => 'Kontaktieren Sie mich!',
-
-    'booking_title' => 'Terminbuchung',
-    'booking_subtitle' => 'Vereinbaren Sie einen Termin in 3 einfachen Schritten.',
-    
-    'step_1_title' => '1. Datum wählen',
-    'step_1_desc' => 'Bitte wählen Sie den gewünschten Tag aus.',
-    'date_label' => 'Datum:',
-    
-    'step_2_title' => '2. Uhrzeit wählen',
-    'step_2_desc' => 'Verfügbare Termine am gewählten Tag:',
-    
-    'step_3_title' => '3. Ihre Daten',
-    'step_3_desc' => 'Fast fertig! Bitte geben Sie Ihre Kontaktdaten an.',
-    
-    'book_summary' => 'Gewählter Termin:',
-    'book_service_label' => 'Worum geht es?',
-    'service_opt_1' => 'Beratung',
-    'service_opt_2' => 'Buchhaltung',
-    'service_opt_3' => 'Sonstiges',
-    'service_opt_4' => 'Lohnverrechnung',
-    'service_opt_5' => 'Arbeitnehmerveranlagung',
-    'service_opt_6' => 'Familienbeihilfe',
-    'service_opt_7' => 'Kinderbetreuungsgeld',
-
-    'book_name' => 'Vollständiger Name',
-    'book_email' => 'E-Mail Adresse',
-    'book_phone' => 'Telefonnummer',
-    'book_msg' => 'Notiz (Optional)',
-    
-    'btn_next' => 'Weiter',
-    'btn_back' => 'Zurück',
-    'btn_finish' => 'Buchung abschließen',
-    'btn_saving' => 'Speichern...',
-    'success_msg' => 'Danke! Ihre Buchungsanfrage wurde gespeichert.',
+    'contact_hours_text' => 'Montag - Sonntag: Nur nach vorheriger Terminvereinbarung!',
 ];

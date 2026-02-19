@@ -1,4 +1,7 @@
 <?php
+/**
+ * lang/hu.php - Teljes magyar tartalom
+ */
 return [
     'nav_home' => 'Magamról',
     'nav_services' => 'Tevékenységek',
@@ -6,30 +9,70 @@ return [
     'nav_partners' => 'Partnerek',
     'nav_contact' => 'Kapcsolat',
     
-    'site_title' => 'Ausztriai Könyvelés - E-Conto',
+    'site_title' => 'Ausztriai Könyvelés | E-Conto',
     'hero_badge' => 'Minőség · Precizitás · Gyorsaság',
     'about_title' => 'Magamról',
     'about_name' => 'Farkasné Bor Erika',
     
     'about_text_hu' => 'Magyarországon közgazdász, adótanácsadó, TB- és bérügyi szakelőadó és mérlegképes könyvelői képesítéssel rendelkezem. A számvitel területén dolgoztam, leginkább főkönyvelőként.',
-    'about_text_at' => 'Ausztriában mérlegképes könyvelő, bérszámfejtő és TB ügyintéző szakképesítést szereztem. Jogosultságom által Ausztriában az ügyfeleimet illetően iratokba való betekintési joggal is rendelkezem. Ausztriai adótanácsadóval és könyvvizsgálóval történő együttműködésem keretében teljes körű adózási és könyvvizsgálati szolgáltatást tudok nyújtani ügyfeleimnek. Az általam nyújtott szolgáltatások felsorolása megtalálható a honlapomon a Tevékenységek menüpont alatt.',
+    'about_text_at' => 'Ausztriában mérlegképes könyvelő, bérszámfejtő és TB ügyintéző szakképesítést szereztem. Jogosultságom által Ausztriában az ügyfeleimet illetően iratokba való betekintési joggal is rendelkezem.',
     
     'btn_facebook' => 'E-Conto hivatalos Facebook oldala',
     'btn_booking' => 'Időpontfoglalás',
     'btn_contact' => 'Kapcsolatfelvétel',
     'copyright' => 'Minden jog fenntartva.',
 
-    'services_title' => 'Tevékenységek',
-    'services_subtitle' => 'Professzionális megoldások vállalkozása számára',
-    'srv_1_title' => 'Könyvelés',
-    'srv_1_desc' => 'Teljes körű könyvelés, beszámolók készítése, hatósági adatszolgáltatás precízen és határidőre.',
-    'srv_2_title' => 'Bérszámfejtés',
-    'srv_2_desc' => 'Munkavállalók be- és kijelentése, bérszámfejtés, járulékbevallások és munkaügyi tanácsadás.',
-    'srv_3_title' => 'Adótanácsadás',
-    'srv_3_desc' => 'Optimális adózási formák kiválasztása, adótervezés és képviselet az osztrák adóhatóság előtt.',
-    'srv_4_title' => 'Cégalapítás',
-    'srv_4_desc' => 'Segítségnyújtás új vállalkozások indításában, adminisztrációs terhek átvállalása.',
+    // Időpontfoglalás szövegek
+    'booking_title' => 'Időpontfoglalás',
+    'booking_subtitle' => 'Kérjen időpontot egyszerűen, 3 lépésben.',
+    
+    'step_1_title' => '1. Dátum választás',
+    'step_1_desc' => 'Válassza ki az Önnek megfelelő napot a naptárból.',
+    'date_label' => 'Válasszon dátumot',
+    
+    'step_2_title' => '2. Időpont választás',
+    'step_2_desc' => 'Válasszon a szabad időpontok közül:',
+    'loading' => 'Szabad időpontok betöltése...',
+    'status_free' => 'Szabad',
+    'status_booked' => 'Foglalt',
+    
+    'step_3_title' => '3. Adatok megadása',
+    'step_3_desc' => 'Már majdnem kész! Adja meg elérhetőségeit a foglaláshoz.',
+    'book_summary' => 'Kiválasztott időpont:',
+    
+    'book_service_placeholder' => 'Válasszon...',
+    'book_service_label' => 'Milyen ügyben keres?',
+    'service_opt_1' => 'Tanácsadás',
+    'service_opt_2' => 'Könyvelés',
+    'service_opt_3' => 'Bérszámfejtés',
+    'service_opt_4' => 'Adóbevallás',
+    'service_opt_5' => 'Családi pótlék',
+    'service_opt_6' => 'GYES / GYED',
+    'service_opt_7' => 'Egyéb',
 
+    'book_name' => 'Teljes név',
+    'book_email' => 'E-mail cím',
+    'book_phone' => 'Telefonszám',
+    'book_msg' => 'Megjegyzés (Opcionális)',
+    
+    'btn_next' => 'Következő',
+    'btn_back' => 'Vissza',
+    'btn_finish' => 'Foglalás véglegesítése',
+    'btn_saving' => 'Mentés...',
+    
+    // Validációs üzenetek és a kért módosítás:
+    'alert_date' => 'Kérjük, válasszon dátumot!',
+    'alert_time' => 'Kérjük, válasszon időpontot!',
+    'alert_service' => 'Kérjük, válasszon szolgáltatást!',
+    'alert_name' => 'Kérjük, adja meg a nevét!',
+    'alert_email' => 'Kérjük, adja meg e-mail címét!',
+    'alert_phone' => 'Kérjük, adja meg telefonszámát!',
+    
+    // A kért új üzenet:
+    'success_msg' => "Köszönjük! Időpontfoglalását rögzítettük. Hamarosan küldünk egy visszaigazoló e-mailt – kérjük, ellenőrizze a Spam (levélszemét) mappát is, mert a visszaigazolás esetenként oda érkezhet!",
+    'error_network' => 'Hálózati hiba történt. Kérjük, próbálja újra később.',
+
+    // Kapcsolat
     'contact_title' => 'Kapcsolat',
     'contact_subtitle' => 'Keressen bizalommal az alábbi elérhetőségeken!',
     'contact_address_label' => 'Iroda címe',
@@ -42,50 +85,5 @@ return [
     'contact_email_label' => 'E-mail cím',
     'contact_email' => 'info@e-conto.at',
     'contact_hours_label' => 'Nyitvatartás',
-    'contact_hours_text' => 'Hétfő - Péntek: Kizárólag előre egyeztetett időpontban!',
-    
-    'partners_title' => 'Partnereink',
-    'partners_subtitle' => 'Megbízható szakmai partnereim, akikkel együttműködöm a sikeres ügyintézés érdekében.',
-    'partner_1_name' => 'Nyelvhatár',
-    'partner_1_desc' => 'Professzionális fordítás és tolmácsolás. Hivatalos iratok, szerződések precíz fordítása.',
-    'partner_1_btn' => 'Weboldal megtekintése',
-    'partner_2_name' => 'Fidas Österreich',
-    'partner_2_desc' => 'Adótanácsadás, könyvvizsgálat és üzleti tanácsadás Ausztria egész területén.',
-    'partner_2_btn' => 'Weboldal megtekintése',
-    'partner_cta_text' => 'Szeretne Ön is partnerünk lenni?',
-    'partner_cta_btn' => 'Lépjen velem kapcsolatba!',
-
-    'booking_title' => 'Időpontfoglalás',
-    'booking_subtitle' => 'Kérjen időpontot egyszerűen, 3 lépésben.',
-    
-    'step_1_title' => '1. Dátum kiválasztása',
-    'step_1_desc' => 'Kérjük, válassza ki, melyik napon szeretne jönni.',
-    'date_label' => 'Válasszon dátumot:',
-    
-    'step_2_title' => '2. Időpont kiválasztása',
-    'step_2_desc' => 'A kiválasztott napon ezek az időpontok szabadok:',
-    
-    'step_3_title' => '3. Adatok megadása',
-    'step_3_desc' => 'Már majdnem kész! Adja meg elérhetőségeit a foglaláshoz.',
-    
-    'book_summary' => 'Kiválasztott időpont:',
-    'book_service_label' => 'Milyen ügyben keres?',
-    'service_opt_1' => 'Tanácsadás',
-    'service_opt_2' => 'Könyvelés',
-    'service_opt_3' => 'Egyéb',
-    'service_opt_4' => 'Bérszámfejtés',
-    'service_opt_5' => 'Munkavállalói adóvisszatérítés',
-    'service_opt_6' => 'Családi pótlék',
-    'service_opt_7' => 'GYES',
-
-    'book_name' => 'Teljes név',
-    'book_email' => 'E-mail cím',
-    'book_phone' => 'Telefonszám',
-    'book_msg' => 'Megjegyzés (Opcionális)',
-    
-    'btn_next' => 'Következő',
-    'btn_back' => 'Vissza',
-    'btn_finish' => 'Foglalás véglegesítése',
-    'btn_saving' => 'Mentés...',
-    'success_msg' => 'Köszönjük! A foglalási igényét rögzítettük. Hamarosan keresni fogjuk!',
+    'contact_hours_text' => 'Hétfő - Vasárnap: Csak előzetes időpontegyeztetés alapján!',
 ];

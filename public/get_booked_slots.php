@@ -1,55 +1,53 @@
 <?php
-// Hibaüzenetek elrejtése a válaszból
+// Hibaüzenetek elrejtése, hogy ne rontsa el a JSON kimenetet
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 
 header('Content-Type: application/json; charset=utf-8');
 
 try {
-    // 1. ADATBÁZIS KAPCSOLAT (Ugyanaz a robusztus logika, mint a mentésnél)
-    $current_dir = __DIR__;
-    $root_dir = dirname($current_dir);
-    $config_dir = $root_dir . '/config';
+    // =======================================================================
+    // 1. ADATBÁZIS KAPCSOLAT (KÉNYSZERÍTETT ÉLES BEÁLLÍTÁS)
+    // =======================================================================
+    // Meghatározzuk a config fájl pontos helyét a szerveren (szülőkönyvtár/config/db.php)
+    $db_file = dirname(__DIR__) . '/config/db.php';
 
-    if (file_exists($config_dir . '/dbdev.php')) {
-        require $config_dir . '/dbdev.php';
-    } elseif (file_exists($config_dir . '/db.php')) {
-        require $config_dir . '/db.php';
-    } elseif (file_exists($current_dir . '/dbdev.php')) {
-        require $current_dir . '/dbdev.php';
-    } elseif (file_exists($current_dir . '/db.php')) {
-        require $current_dir . '/db.php';
-    } elseif (file_exists($root_dir . '/dbdev.php')) {
-        require $root_dir . '/dbdev.php';
-    } elseif (file_exists($root_dir . '/db.php')) {
-        require $root_dir . '/db.php';
+    if (file_exists($db_file)) {
+        require_once $db_file;
     } else {
-        throw new Exception("Adatbázis konfigurációs fájl nem található.");
+        throw new Exception("Az adatbázis konfigurációs fájl nem található.");
     }
 
+    // Ellenőrizzük, hogy a db.php valóban létrehozta-e a $pdo objektumot
     if (!isset($pdo)) {
-        throw new Exception("Adatbázis kapcsolat sikertelen.");
+        throw new Exception("Adatbázis hiba: a \$pdo objektum nem jött létre.");
     }
 
-    // 2. LEKÉRDEZÉS
-    if (!isset($_GET['date'])) {
-        echo json_encode([]); // Ha nincs dátum, üres listát küldünk
+    // =======================================================================
+    // 2. ADATOK LEKÉRDEZÉSE
+    // =======================================================================
+    
+    // Megnézzük, érkezett-e dátum a kérésben
+    $date = $_GET['date'] ?? null;
+
+    if (!$date) {
+        // Ha nincs dátum, üres tömbbel térünk vissza
+        echo json_encode([]);
         exit;
     }
 
-    $date = $_GET['date'];
-
-    // Lekérjük az összes foglalt időpontot az adott napra
-    $stmt = $pdo->prepare("SELECT booking_time FROM bookings WHERE booking_date = ?");
-    $stmt->execute([$date]);
+    // Lekérjük az adott napra már lefoglalt időpontokat
+    $stmt = $pdo->prepare("SELECT booking_time FROM bookings WHERE booking_date = :b_date");
+    $stmt->execute([':b_date' => $date]);
     
-    // Egy egyszerű tömböt készítünk: ['08:00', '14:00', ...]
+    // Csak az időpontokat gyűjtjük ki egy egyszerű tömbbe (pl. ["08:00", "09:30"])
     $booked_slots = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+    // Visszaküldjük a listát a naptárnak
     echo json_encode($booked_slots);
 
 } catch (Exception $e) {
-    // Hiba esetén üres tömböt küldünk, hogy ne omoljon össze az oldal
-    echo json_encode([]);
+    // Hiba esetén hibaüzenetet küldünk (opcionális, a naptár üresnek fogja látni)
+    echo json_encode(['error' => $e->getMessage()]);
 }
 ?>
