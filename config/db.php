@@ -1,15 +1,21 @@
 <?php
-// Adatbázis beállítások (XAMPP alapértelmezett)
 $host = 'localhost';
-$db_name = 'e_conto_db'; // Fontos: Ide azt írd, ami az adatbázisod neve a phpMyAdminban!
-$username = 'root';
-$password = '';
+$db   = 'econtoatweb';  // <--- ITT A VÁLTOZÁS!
+$user = 'zsola_econtodb'; // A felhasználónév maradt a régi.
+$pass = 'E-conto.atdbpass2025'; // A jelszó is maradt
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
-    // Hibaüzenetek bekapcsolása
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Adatbázis hiba: " . $e->getMessage());
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    // Élesben sose írd ki a hibát, de most a fejlesztéshez látnunk kell, ha baj van:
+    die('Adatbázis hiba: ' . $e->getMessage());
 }
 ?>
