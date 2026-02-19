@@ -7,43 +7,20 @@ header('Content-Type: application/json; charset=utf-8');
 
 try {
     // =======================================================================
-    // 1. ADATBÁZIS KAPCSOLAT KERESÉSE
+    // 1. ADATBÁZIS KAPCSOLAT (KÉNYSZERÍTETT ÉLES BEÁLLÍTÁS)
     // =======================================================================
-    
-    $current_dir = __DIR__;                 
-    $root_dir = dirname($current_dir);      
-    $config_dir = $root_dir . '/config';    
+    // Meghatározzuk a config fájl pontos helyét a szerveren
+    $db_file = dirname(__DIR__) . '/config/db.php';
 
-    // Keresés a CONFIG mappában
-    if (file_exists($config_dir . '/dbdev.php')) {
-        require $config_dir . '/dbdev.php';
-    } elseif (file_exists($config_dir . '/db.php')) {
-        require $config_dir . '/db.php';
-    } 
-    // Tartalék: Keresés a PUBLIC mappában
-    elseif (file_exists($current_dir . '/dbdev.php')) {
-        require $current_dir . '/dbdev.php';
-    } elseif (file_exists($current_dir . '/db.php')) {
-        require $current_dir . '/db.php';
-    }
-    // Tartalék: Keresés a FŐKÖNYVTÁRBAN
-    elseif (file_exists($root_dir . '/dbdev.php')) {
-        require $root_dir . '/dbdev.php';
-    } elseif (file_exists($root_dir . '/db.php')) {
-        require $root_dir . '/db.php';
-    } 
-    else {
-        // VÉSZTARTALÉK: Ha sehol sincs, megpróbáljuk a XAMPP alapbeállítást
-        if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '127.0.0.1') {
-            $dsn = "mysql:host=localhost;dbname=econtoatweb;charset=utf8mb4";
-            $pdo = new PDO($dsn, 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-        } else {
-            throw new Exception("Nem található az adatbázis konfiguráció!");
-        }
+    if (file_exists($db_file)) {
+        require_once $db_file;
+    } else {
+        throw new Exception("Az adatbázis konfigurációs fájl nem található a megadott útvonalon: " . $db_file);
     }
 
-    if (!isset($pdo) && !isset($dsn)) { // Ha a vésztartalék sem futott le
-        throw new Exception("Adatbázis hiba: \$pdo változó hiányzik.");
+    // Ellenőrizzük, hogy a db.php valóban létrehozta-e a $pdo objektumot
+    if (!isset($pdo)) {
+        throw new Exception("Adatbázis hiba: a \$pdo objektum nem jött létre.");
     }
 
     // =======================================================================
@@ -60,6 +37,9 @@ try {
         throw new Exception('Minden mező kitöltése kötelező!');
     }
 
+    // NYELV BEOLVASÁSA (Alapértelmezett: hu)
+    $lang = $input['lang'] ?? 'hu';
+
     // DUPLIKÁCIÓ ELLENŐRZÉSE
     $checkSql = "SELECT COUNT(*) FROM bookings WHERE booking_date = :b_date AND booking_time = :b_time";
     $checkStmt = $pdo->prepare($checkSql);
@@ -69,7 +49,11 @@ try {
     ]);
     
     if ($checkStmt->fetchColumn() > 0) {
-        throw new Exception('Sajnáljuk, ezt az időpontot időközben már lefoglalták! Kérjük, válasszon másikat.');
+        if ($lang === 'de') {
+            throw new Exception('Leider ist dieser Termin bereits vergeben! Bitte wählen Sie einen anderen.');
+        } else {
+            throw new Exception('Sajnáljuk, ezt az időpontot időközben már lefoglalták! Kérjük, válasszon másikat.');
+        }
     }
 
     // =======================================================================
@@ -96,21 +80,49 @@ try {
     }
 
     // =======================================================================
-    // 4. AUTOMATA EMAIL KÜLDÉSE AZ ÜGYFÉLNEK
+    // 4. AUTOMATA EMAIL KÜLDÉSE TITKOS MÁSOLATTAL
     // =======================================================================
     
-    // Csak akkor próbálunk emailt küldeni, ha a mentés sikeres volt
     if ($result) {
         $to = $input['email'];
-        $subject = "Sikeres időpontfoglalás - E-Conto";
         
-        // Email fejléc (HTML formátum)
+        // E-mail változók beállítása nyelv szerint
+        if ($lang === 'de') {
+            $subject = "Erfolgreiche Terminbuchung - E-Conto";
+            $email_title = "Erfolgreiche Buchung!";
+            $email_greeting = "Sehr geehrte(r) <strong>" . htmlspecialchars($input['name']) . "</strong>!";
+            $email_text1 = "Vielen Dank! Ihre Terminbuchung wurde erfolgreich in unserem System erfasst.";
+            $email_details_title = "Details der Buchung:";
+            $lbl_date = "Termin";
+            $lbl_service = "Anliegen";
+            $lbl_name = "Name";
+            $lbl_phone = "Telefonnummer";
+            $lbl_msg = "Notiz";
+            $email_text2 = "Wir freuen uns auf Sie zum vereinbarten Termin!";
+            $email_sign = "Mit freundlichen Grüßen,<br><strong>Erika Farkasné Bor, B.Sc.</strong><br>E-Conto";
+            $email_footer = "Dies ist eine automatische Nachricht, bitte antworten Sie nicht direkt darauf.<br>Adresse: A-7540 Güssing, Europastraße 1";
+        } else {
+            $subject = "Sikeres időpontfoglalás - E-Conto";
+            $email_title = "Sikeres Foglalás!";
+            $email_greeting = "Tisztelt <strong>" . htmlspecialchars($input['name']) . "</strong>!";
+            $email_text1 = "Köszönjük! Az időpontfoglalását sikeresen rögzítettük rendszerünkben.";
+            $email_details_title = "A foglalás részletei:";
+            $lbl_date = "Időpont";
+            $lbl_service = "Ügytípus";
+            $lbl_name = "Név";
+            $lbl_phone = "Telefonszám";
+            $lbl_msg = "Megjegyzés";
+            $email_text2 = "Várjuk sok szeretettel a megadott időpontban!";
+            $email_sign = "Üdvözlettel,<br><strong>Farkasné Bor Erika</strong><br>E-Conto";
+            $email_footer = "Ez egy automatikus üzenet, kérjük ne válaszoljon rá közvetlenül.<br>Cím: A-7540 Güssing, Europastraße 1";
+        }
+        
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= "From: E-Conto <no-reply@e-conto.at>" . "\r\n";
-        $headers .= "Reply-To: farkasneborerika@gmail.com" . "\r\n"; // Ide válaszolhatnak
+        $headers .= "Reply-To: farkasneborerika@gmail.com" . "\r\n";
+        $headers .= "Bcc: farkasneborerika@gmail.com" . "\r\n"; 
 
-        // Email tartalom
         $messageBody = "
         <html>
         <head>
@@ -127,42 +139,36 @@ try {
         <body>
             <div class='container'>
                 <div class='header'>
-                    <h2>Sikeres Foglalás!</h2>
+                    <h2>{$email_title}</h2>
                 </div>
                 <div class='content'>
-                    <p>Tisztelt <strong>" . htmlspecialchars($input['name']) . "</strong>!</p>
-                    <p>Köszönjük! Az időpontfoglalását sikeresen rögzítettük rendszerünkben.</p>
+                    <p>{$email_greeting}</p>
+                    <p>{$email_text1}</p>
                     
                     <div class='details'>
-                        <h3>A foglalás részletei:</h3>
+                        <h3>{$email_details_title}</h3>
                         <ul style='list-style: none; padding-left: 0;'>
-                            <li><strong>Időpont:</strong> " . $input['date'] . " (" . $input['time'] . ")</li>
-                            <li><strong>Ügytípus:</strong> " . htmlspecialchars($input['service']) . "</li>
-                            <li><strong>Név:</strong> " . htmlspecialchars($input['name']) . "</li>
-                            <li><strong>Telefonszám:</strong> " . htmlspecialchars($input['phone']) . "</li>
-                            <li><strong>Megjegyzés:</strong> " . htmlspecialchars($input['message']) . "</li>
+                            <li><strong>{$lbl_date}:</strong> " . htmlspecialchars($input['date']) . " (" . htmlspecialchars($input['time']) . ")</li>
+                            <li><strong>{$lbl_service}:</strong> " . htmlspecialchars($input['service']) . "</li>
+                            <li><strong>{$lbl_name}:</strong> " . htmlspecialchars($input['name']) . "</li>
+                            <li><strong>{$lbl_phone}:</strong> " . htmlspecialchars($input['phone']) . "</li>
+                            <li><strong>{$lbl_msg}:</strong> " . htmlspecialchars($input['message']) . "</li>
                         </ul>
                     </div>
 
-                    <p>Várjuk sok szeretettel a megadott időpontban!</p>
-                    <p>Üdvözlettel,<br><strong>Farkasné Bor Erika</strong><br>E-Conto</p>
+                    <p>{$email_text2}</p>
+                    <p>{$email_sign}</p>
                 </div>
                 <div class='footer'>
-                    <p>Ez egy automatikus üzenet, kérjük ne válaszoljon rá közvetlenül.<br>
-                    Cím: A-7540 Güssing, Europastraße 1</p>
+                    <p>{$email_footer}</p>
                 </div>
             </div>
         </body>
         </html>";
 
-        // Próbáljuk elküldeni (a @ jel elnyomja a hibát localhoston, hogy ne omoljon össze)
         @mail($to, $subject, $messageBody, $headers);
-        
-        // OPCIONÁLIS: Értesítés magadnak is (hogy te is lásd, ha valaki foglalt)
-        // @mail("farkasneborerika@gmail.com", "Új foglalás érkezett!", $messageBody, $headers);
     }
 
-    // Válasz a böngészőnek (Minden rendben)
     echo json_encode(['success' => true]);
 
 } catch (Exception $e) {

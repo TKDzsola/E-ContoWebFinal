@@ -10,8 +10,11 @@ return [
     'hero_badge' => 'Minőség · Precizitás · Gyorsaság',
     'about_title' => 'Magamról',
     'about_name' => 'Farkasné Bor Erika',
-    'about_text_hu' => 'Magyarországon közgazdász, adótanácsadó, TB- és bérügyi szakelőadó és mérlegképes könyvelői képesítéssel rendelkezem.',
-    'about_text_at' => 'Ausztriában mérlegképes könyvelő, bérszámfejtő és TB ügyintéző szakképesítést szereztem.',
+    
+    'about_text_hu' => 'Magyarországon közgazdász, adótanácsadó, TB- és bérügyi szakelőadó és mérlegképes könyvelői képesítéssel rendelkezem. A számvitel területén dolgoztam, leginkább főkönyvelőként.',
+    'about_text_at' => 'Ausztriában mérlegképes könyvelő, bérszámfejtő és TB ügyintéző szakképesítést szereztem. Jogosultságom által Ausztriában az ügyfeleimet illetően iratokba való betekintési joggal is rendelkezem. Ausztriai adótanácsadóval és könyvvizsgálóval történő együttműködésem keretében teljes körű adózási és könyvvizsgálati szolgáltatást tudok nyújtani ügyfeleimnek. Az általam nyújtott szolgáltatások felsorolása megtalálható a honlapomon a Tevékenységek menüpont alatt.',
+    
+    'btn_facebook' => 'E-Conto hivatalos Facebook oldala',
     'btn_booking' => 'Időpontfoglalás',
     'btn_contact' => 'Kapcsolatfelvétel',
     'copyright' => 'Minden jog fenntartva.',
@@ -39,7 +42,7 @@ return [
     'contact_email_label' => 'E-mail cím',
     'contact_email' => 'info@e-conto.at',
     'contact_hours_label' => 'Nyitvatartás',
-    'contact_hours_text' => 'Hétfő - Vasárnap: Kizárólag előre egyeztetett időpontban!',
+    'contact_hours_text' => 'Hétfő - Péntek: Kizárólag előre egyeztetett időpontban!',
     
     'partners_title' => 'Partnereink',
     'partners_subtitle' => 'Megbízható szakmai partnereim, akikkel együttműködöm a sikeres ügyintézés érdekében.',
@@ -83,5 +86,6 @@ return [
     'btn_next' => 'Következő',
     'btn_back' => 'Vissza',
     'btn_finish' => 'Foglalás véglegesítése',
+    'btn_saving' => 'Mentés...',
     'success_msg' => 'Köszönjük! A foglalási igényét rögzítettük. Hamarosan keresni fogjuk!',
 ];

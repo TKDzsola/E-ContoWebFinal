@@ -10,8 +10,11 @@ return [
     'hero_badge' => 'Qualität · Präzision · Geschwindigkeit',
     'about_title' => 'Über Mich',
     'about_name' => 'Erika Farkasné Bor, B.Sc.',
-    'about_text_hu' => 'In Ungarn bin ich Betriebswirtin, Steuerberaterin, Bilanzbuchhalterin und Fachreferentin.',
-    'about_text_at' => 'In Österreich habe ich den Bilanzbuchhalter- und den Personalverrechnerkurs besucht.',
+    
+    'about_text_hu' => 'In Ungarn verfüge ich über Qualifikationen als Betriebswirtin, Steuerberaterin, Fachreferentin für Sozialversicherung und Lohnverrechnung sowie als Bilanzbuchhalterin. Ich habe im Bereich Rechnungswesen gearbeitet, hauptsächlich als Hauptbuchhalterin.',
+    'about_text_at' => 'In Österreich habe ich die Fachausbildung zur Bilanzbuchhalterin, Personalverrechnerin und Sozialversicherungs-Sachbearbeiterin absolviert. Aufgrund meiner Berechtigung habe ich in Österreich auch das Recht auf Akteneinsicht bezüglich meiner Klienten. Im Rahmen meiner Zusammenarbeit mit einem österreichischen Steuerberater und Wirtschaftsprüfer kann ich meinen Klienten umfassende Steuer- und Wirtschaftsprüfungsdienstleistungen anbieten. Eine Auflistung der von mir erbrachten Dienstleistungen finden Sie auf meiner Homepage unter dem Menüpunkt Tätigkeiten.',
+    
+    'btn_facebook' => 'Offizielle Facebook-Seite',
     'btn_booking' => 'Termin buchen',
     'btn_contact' => 'Kontakt aufnehmen',
     'copyright' => 'Alle Rechte vorbehalten.',
@@ -39,7 +42,7 @@ return [
     'contact_email_label' => 'E-Mail',
     'contact_email' => 'info@e-conto.at',
     'contact_hours_label' => 'Öffnungszeiten',
-    'contact_hours_text' => 'Montag - Sonntag: Nur nach Terminvereinbarung!',
+    'contact_hours_text' => 'Montag - Freitag: Nur nach Terminvereinbarung!',
     
     'partners_title' => 'Unsere Partner',
     'partners_subtitle' => 'Zuverlässige professionelle Partner, mit denen ich zusammenarbeite.',
@@ -83,5 +86,6 @@ return [
     'btn_next' => 'Weiter',
     'btn_back' => 'Zurück',
     'btn_finish' => 'Buchung abschließen',
+    'btn_saving' => 'Speichern...',
     'success_msg' => 'Danke! Ihre Buchungsanfrage wurde gespeichert.',
 ];

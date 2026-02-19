@@ -227,9 +227,10 @@
         const btn = document.getElementById('submitBtn');
         const originalText = btn.innerHTML;
         btn.disabled = true;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Mentés...';
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> <?= $text['btn_saving'] ?>';
 
         const bookingData = {
+            lang: '<?= isset($_GET["lang"]) && $_GET["lang"] === "de" ? "de" : "hu" ?>',
             date: document.getElementById('dateInput').value,
             time: document.getElementById('finalTime').innerText,
             service: document.getElementById('serviceSelect').value,
@@ -249,7 +250,6 @@
 
             if (result.success) {
                 alert('<?= $text['success_msg'] ?>');
-                // VISSZANAVIGÁLÁS A FŐOLDALRA (index.php)
                 window.location.href = 'index.php'; 
             } else {
                 alert('Hiba történt: ' + result.message);
