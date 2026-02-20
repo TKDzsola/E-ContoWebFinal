@@ -22,26 +22,45 @@ return [
     'btn_contact' => 'Kapcsolatfelvétel',
     'copyright' => 'Minden jog fenntartva.',
 
-    // Időpontfoglalás szövegek
+    // Tevékenységek
+    'services_list_title' => 'Tevékenységeink:',
+    'service_item_1' => 'Könyvelés',
+    'service_item_2' => 'Bérszámfejtés és TB ügyintézés',
+    'service_item_3' => 'Családtámogatási ellátások (Családi pótlék, GYES)',
+    'service_item_4' => 'Adó visszatérítés',
+    'service_item_5' => 'Áfa jelentés',
+    'service_item_6' => 'Vállalkozási tanácsadás',
+    'service_item_7' => 'Mérlegkészítés',
+    'service_item_8' => 'Év végi zárások összeállítása és adóbevallások (ÁFA, Társasági adó, Jövedelemadó...stb)',
+    'service_item_9' => 'Könyvvizsgálat',
+    'service_item_10' => 'Adótanácsadás',
+    'service_item_11' => 'Képviselet nyújtása az ausztriai adóhatóságok előtt',
+    'services_cta' => 'Lépjen velem kapcsolatba!',
+
+    // Partnerek
+    'partner_1_title' => 'Nyelvhatár Fordítóiroda',
+    'partner_1_logo' => 'nyelvforditoirodahun.jpg',
+    'partner_1_desc' => 'Hivatalos és hiteles fordítások készítése, legyen szó jogi, gazdasági vagy magándokumentumokról. Precíz és gyors munkavégzés a határok felett.',
+    'partner_2_title' => 'FIDAS Süd Steuerberatung',
+    'partner_2_desc' => 'Szakmai partnerünk az osztrák adótanácsadásban és könyvvizsgálatban. Magas szintű szakértelem és megbízható tanácsadás osztrák vállalkozások számára.',
+    'partner_visit' => 'Megtekintés',
+
+    // Időpontfoglalás
     'booking_title' => 'Időpontfoglalás',
     'booking_subtitle' => 'Kérjen időpontot egyszerűen, 3 lépésben.',
-    
     'step_1_title' => '1. Dátum választás',
     'step_1_desc' => 'Válassza ki az Önnek megfelelő napot a naptárból.',
     'date_label' => 'Válasszon dátumot',
-    
-    'step_2_title' => '2. Időpont választás',
-    'step_2_desc' => 'Válasszon a szabad időpontok közül:',
-    'loading' => 'Szabad időpontok betöltése...',
+    'loading' => 'Betöltés...',
     'status_free' => 'Szabad',
     'status_booked' => 'Foglalt',
-    
+    'step_2_title' => '2. Időpont választás',
+    'step_2_desc' => 'Válasszon a szabad időpontok közül:',
     'step_3_title' => '3. Adatok megadása',
-    'step_3_desc' => 'Már majdnem kész! Adja meg elérhetőségeit a foglaláshoz.',
+    'step_3_desc' => 'Adja meg elérhetőségeit a foglaláshoz.',
     'book_summary' => 'Kiválasztott időpont:',
-    
     'book_service_placeholder' => 'Válasszon...',
-    'book_service_label' => 'Milyen ügyben keres?',
+    'book_service_label' => 'Ügytípus',
     'service_opt_1' => 'Tanácsadás',
     'service_opt_2' => 'Könyvelés',
     'service_opt_3' => 'Bérszámfejtés',
@@ -49,28 +68,21 @@ return [
     'service_opt_5' => 'Családi pótlék',
     'service_opt_6' => 'GYES / GYED',
     'service_opt_7' => 'Egyéb',
-
     'book_name' => 'Teljes név',
     'book_email' => 'E-mail cím',
     'book_phone' => 'Telefonszám',
     'book_msg' => 'Megjegyzés (Opcionális)',
-    
     'btn_next' => 'Következő',
     'btn_back' => 'Vissza',
     'btn_finish' => 'Foglalás véglegesítése',
     'btn_saving' => 'Mentés...',
-    
-    // Validációs üzenetek és a kért módosítás:
+    'success_msg' => "Köszönjük! Időpontfoglalását rögzítettük. Hamarosan küldünk egy visszaigazoló e-mailt – kérjük, ellenőrizze a Spam mappát is!",
     'alert_date' => 'Kérjük, válasszon dátumot!',
     'alert_time' => 'Kérjük, válasszon időpontot!',
     'alert_service' => 'Kérjük, válasszon szolgáltatást!',
     'alert_name' => 'Kérjük, adja meg a nevét!',
     'alert_email' => 'Kérjük, adja meg e-mail címét!',
     'alert_phone' => 'Kérjük, adja meg telefonszámát!',
-    
-    // A kért új üzenet:
-    'success_msg' => "Köszönjük! Időpontfoglalását rögzítettük. Hamarosan küldünk egy visszaigazoló e-mailt – kérjük, ellenőrizze a Spam (levélszemét) mappát is, mert a visszaigazolás esetenként oda érkezhet!",
-    'error_network' => 'Hálózati hiba történt. Kérjük, próbálja újra később.',
 
     // Kapcsolat
     'contact_title' => 'Kapcsolat',
